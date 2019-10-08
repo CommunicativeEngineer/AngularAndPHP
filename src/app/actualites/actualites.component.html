@@ -1,0 +1,50 @@
+<!--inner header start-->
+<div class="main-heading" style="background-image: url(../../assets/images/wabimages/actualites1.jpg);background-repeat: no-repeat; width: 100%; ">
+    <div class="container">
+        <h3>Actualités</h3>
+    </div>
+</div>
+
+<!--inner content start-->
+<div class="main-content">
+    <div class="container">
+
+        <!-- Blog List start -->
+        <div class="blog-container">
+            <ul class="row blog-grid-show">
+                <li class="col-md-4 col-sm-6" *ngFor="let actualite of actualites">
+                    <div class="blog-inter">
+                        <div class="postimg"> <img class="actual" src="http://localhost/image/{{actualite.fichier}}" alt="Blog Title"></div>
+                        <div class="post-grid-desc">
+                            <div class="blog-post-heading">
+                                <h4 style="height: 22px;width: auto;overflow: hidden;text-overflow: ellipsis"><a [routerLink]="actualite.id" >{{actualite.titre}}</a></h4>
+                                <div class="post-info-meta">Date: <span>{{actualite.datee}}</span></div>
+                            </div>
+                            <div class="post-info-meta">
+                                <p style="height: 22px;width: auto;overflow: hidden;text-overflow: ellipsis">{{actualite.contenu}}</p>
+                                <a [routerLink]="actualite.id" class="btn-style-1 size-small light-skin uppercase corner-rounded">Suite</a>
+                            </div>
+                            <hr>
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=300&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="300" height="55" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                        </div>
+                    </div>
+                </li>
+                            </ul>
+
+            <!-- Pagination -->
+         <div class="pagination-container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-6" style="text-align: center">
+                        <ul class="pagination" *ngIf="this.n>1">
+                            <li ><a (click)="getact(1)"><<</a></li>
+                            <li *ngFor="let page of pages"><a (click)="getact(page)">{{page}}</a></li>
+                            <li ><a (click)="getact(n)">>></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--inner content end-->

@@ -1,0 +1,88 @@
+<!--inner header start
+<div class="main-heading">
+    <div class="container">
+        <h3>Icon Boxs</h3>
+    </div>
+</div>
+inner header end-->
+<div *ngIf="test">
+<br>
+<br>
+<h1 class="wew fadeInUp " data-wew-delay="1s ">
+  <span>Boite De Reception</span>
+</h1>
+  <div>
+    <ul class="nav nav-tabs">
+      <li><a style="cursor:pointer;" (click)="newsletterOff()"><strong>Messages</strong></a></li>
+      <li><a style="cursor:pointer;" (click)="newsletterOn()"><strong>Newsletters</strong></a></li>
+    </ul>
+  </div>
+<!----------------   Affichage commence ici   --------------->
+<div id="liste" *ngIf="!newsletter">
+  <table class="table table-bordered table-hover" style="table-layout: fixed;width: 100%">
+
+    <tr class="active ">
+      <th style="overflow: hidden">Id </th>
+      <th style="overflow: hidden">Nom </th>
+      <th style="overflow: hidden">Prenom</th>
+      <th style="overflow: hidden">Telephone</th>
+      <th style="overflow: hidden">Email</th>
+      <th style="overflow: hidden">Sujet</th>
+      <th style="overflow: hidden">Message</th>
+      <th style="overflow: hidden">Action</th>
+    </tr>
+    <tr *ngFor="let message of messages">
+      <td style="overflow: hidden">{{message.id}}</td>
+      <td style="overflow: hidden">{{message.nom}}</td>
+      <td style="overflow: hidden">{{message.prenom}}</td>
+      <td style="overflow: hidden">{{message.telephone}}</td>
+      <td style="overflow: hidden">{{message.email}}</td>
+      <td style="overflow: hidden">{{message.sujet}}</td>
+      <td style="overflow: hidden">{{message.messagee}}</td>
+      <td width=275> 
+          <a class="btn btn-info"   routerLink="/unmessage/{{message.id}}" >Detail</a>  
+      </td>
+    </tr>
+
+  </table>
+  <div class="pagination-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6" style="text-align: center">
+        <ul class="pagination" *ngIf="this.n>1">
+          <li ><a (click)="getmsg(1)"><<</a></li>
+          <li *ngFor="let page of pages"><a (click)="getmsg(page)">{{page}}</a></li>
+          <li ><a (click)="getmsg(n)">>></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------   fin Tableau   --------------->
+<div id="liste" *ngIf="newsletter">
+  <table class="table table-bordered table-hover" style="table-layout: fixed;width: 100%">
+
+    <tr class="active ">
+      <th >Adresse email</th>
+    </tr>
+    <tr *ngFor="let mail of mails">
+      <td style="overflow: hidden">{{mail.email}}</td>
+
+ 
+    </tr>
+
+  </table>
+  <div class="pagination-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6" style="text-align: center">
+        <ul class="pagination" *ngIf="this.n2>1">
+          <li ><a (click)="getnews(1)"><<</a></li>
+          <li *ngFor="let page of pages2"><a (click)="getnews(page)">{{page}}</a></li>
+          <li ><a (click)="getnews(n2)">>></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- fin boite de reception -->
+<div *ngIf="!test"><app-login></app-login></div>

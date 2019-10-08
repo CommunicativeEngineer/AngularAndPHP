@@ -1,0 +1,184 @@
+<div class="flexslider">
+    
+    <ul class="slides">
+
+        <li style="background-image:url(../../assets/images/slider/s1.jpg);">
+            <div class="overlay"></div>
+
+            <div class="meta">
+                <h1><span>WAB Expert-Comptable </span></h1>
+                <h2><span> </span></h2>
+                <div class="local-scroll p-t-60">
+                    <a routerLink="/cabinet" class="btn-style-6 size-small dark-skin corner-off-rounded">Plus</a>
+                    <a routerLink="/contact" class="btn-style-6 size-small dark-skin corner-off-rounded">Nous contacter</a>
+                </div>
+            </div>
+        </li>
+        <li style="background-image:url(../../assets/images/slider/s2.jpg);">
+
+            <div class="overlay"></div>
+            <div class="meta">
+                <h1><span><a style="color:white" routerLink="/services" >Tous nos services</a></span></h1>
+                <h2><span></span></h2>
+                <div class="local-scroll p-t-60">
+                    <a routerLink="/cabinet" class="btn-style-6 size-small dark-skin corner-off-rounded">Plus</a>
+                    <a routerLink="/contact" class="btn-style-6 size-small dark-skin corner-off-rounded">Nous contacter</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<section class="about-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="wew fadeInUp" data-wew-delay="1s">LE
+          <span>CABINET</span>
+        </h1>
+        <div class="about-section wew fadeInUp" data-wew-delay="1s"></div>
+        <p class="m-t-30 wew fadeInUp" data-wew-delay="1s">De l'établissement des états financiers au conseil en matière de gestion, de droit des affaires, de droit social,
+          ou encore de conseil à l'export, l'Expert-comptable est le conseil permanent du chef d'entreprise. Il apporte également
+          une réponse ponctuelle et adaptée aux différents évènements de la vie de l'entreprise. Nous sommes dédiés au Service
+          et au Conseil auprès des entreprises. Notre effectif est spécialisé afin d'offrir un niveau de qualité maximum
+          dans nos différents domaines d'intervention.
+          <br>
+        </p>
+        <blockquote class="aboutme" style="direction: rtl; font-size: 12px;font-weight: bold;color: rgba(64, 64, 64, 1); font-style: italic;">
+          Wajdi ABDELHEDI
+          <br> Expert Comptable
+          <br> Membre de l’Ordre des Experts Comptables de Tunisie</blockquote>
+
+        <h3 class="m-b-50"></h3>
+
+
+
+      </div>
+      <div class="col-md-5">
+        <div class="wew fadeInRightBig">
+          <img src="../../assets/images/aboutme1.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="service-container">
+    <div class="container">
+    <div class="row p-b-60">
+            <div class="col-md-8 col-xs-12 col-md-offset-2">
+                <h1 class="wew fadeInUp " data-wew-delay="1s ">Nos
+                    <span>ACTUALITES</span>
+                </h1>
+                <p class="text-center"></p>
+            </div>
+        </div>
+        <!-- Blog List start -->
+        <div class="blog-container">
+            <ul class="row blog-grid-show">
+                <li class="col-md-4 col-sm-6" *ngFor="let actualite of actualites">
+                    <div class="blog-inter">
+                        <div class="postimg"> <img class="actual" src="http://localhost/image/{{actualite.fichier}}" alt="Blog Title"></div>
+                        <div class="post-grid-desc">
+                            <div class="blog-post-heading">
+                                <h4 style="height: 22px;width: auto;overflow: hidden;text-overflow: ellipsis" ><a [routerLink]="'actualites/'+actualite.id" >{{actualite.titre}}</a></h4>
+                                <div class="post-info-meta">Date: <span>{{actualite.datee}}</span></div>
+                            </div>
+                            <div class="post-info-meta">
+                                <p style="height: 22px;width: auto;overflow: hidden;text-overflow: ellipsis">{{actualite.contenu}}</p>
+                                <a [routerLink]="'actualites/'+actualite.id" class="btn-style-1 size-small light-skin uppercase corner-rounded">Suite</a>
+                            </div>
+                            <hr>
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=300&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="300" height="55" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                        </div>
+                    </div>
+                </li>
+                            </ul>
+
+            <!-- Pagination -->
+        <!--   <div class="pagination-container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="showreslt">Showing 1-10</div>
+                    </div>
+                    <div class="col-md-8 col-sm-6">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+
+    </div>
+</section>
+
+<h1 class="wew fadeInUp " data-wew-delay="1s ">Liste des
+    <span>Publications</span>
+</h1>
+
+<section class="page-section">
+    <div class="container margin-b-60">
+
+        <div class="row  margin-t-60 margin-b-60">
+
+            <div  *ngFor="let publication of $posts" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="icon-box dgn-5">
+                    <h4>
+                        <i class="fa fa-folder-o"></i> {{publication.date}}</h4>
+                    <p  style="height: 22px;width: auto;overflow: hidden;text-overflow: ellipsis" >{{publication.titre}}
+                    </p>
+                    <br>
+                    <a style="cursor:pointer;" (click)="run(publication.lien)" target="_blank">  
+                        <span class="read-more">charger le PDF
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+            
+            <hr width="90%" color="midnightblue" size="3" style="margin-left:50px">
+        </div>
+       
+    </div>
+</section>
+
+<app-contact></app-contact>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

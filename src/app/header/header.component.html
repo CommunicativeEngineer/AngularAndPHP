@@ -1,0 +1,100 @@
+<!--<div class="page-loader"></div>-->
+<!-- Top bar start -->
+<div class="top-bar md-padding dialogdemoBasicUsage" id="popupContainer" style="background:#434c9a">
+  <div class="container">
+    <!-- Row Start -->
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+
+        <ul class="left topbar-blocks">
+          <li>
+            <a href="mailto:info@yourdomain.com">
+              <i class="fa fa-envelope" aria-hidden="true"></i> {{contact?.mail}}</a>
+          </li>
+          <li>
+            <a href="tel:+0801 2345 6789">
+              <i class="fa fa-phone" aria-hidden="true"></i> {{contact?.tel1}} </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <ul class="topbar-blocks">
+          <li *ngIf="!this.app.Adminn">
+            <a class="login-popup md-primary md-raised" ng-click="showTabDialog($event)" flex-sm="100" flex-md="100" flex-gt-md="auto"
+              routerLink="login">
+              <i class="fa fa-user" aria-hidden="true"></i> Login </a>
+          </li>
+          <li *ngIf="this.app.Adminn">
+            <a class="login-popup md-primary md-raised" href="/admin" flex-sm="100" flex-md="100" flex-gt-md="auto" (click)="Admin()">
+              <i class="fa fa-user" aria-hidden="true"></i>Espace Admin</a>
+          </li>
+          <li *ngIf="this.app.Adminn">
+            <a class="login-popup md-primary md-raised" flex-sm="100" flex-md="100" flex-gt-md="auto" (click)="logout()">
+              <i aria-hidden="true"></i>Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Row End -->
+  </div>
+</div>
+<!-- Top bar end -->
+
+<!-- Header start -->
+<div id="sticker" class="header">
+  <div class="container">
+    <!-- Row Rtart -->
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="logo">
+          <a href="/">
+            <img src="../../assets/images/wob.png">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-9  col-xs-6">
+        <!--navegation-->
+        <div class="navigationwrape">
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+
+                <li class="dropdown  mega-dropdown">
+                  <a href="/"> Accueil </a>
+                </li>
+                <li class="dropdown mega-dropdown">
+                  <a routerLink="/cabinet" routerLinkActive="activated">Le cabinet</a>
+
+                </li>
+                <li class="dropdown mega-dropdown">
+                  <a routerLink="/actualites">Actualités</a>
+
+                </li>
+                <li class="dropdown mega-dropdown">
+                  <a routerLink="/services">Nos services</a>
+
+                </li>
+                <li>
+                  <a routerLink="/publication"> Publication</a>
+                </li>
+                <li>
+                  <a routerLink="/contact"> contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row End -->
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<!--inner header start
+<div class="main-heading">
+    <div class="container">
+        <h3>Icon Boxs</h3>
+    </div>
+</div>
+inner header end-->
+<br>
+<br>
+<div *ngIf="test">
+<h1 class="wew fadeInUp " data-wew-delay="1s ">
+  <span>Modifier Contact</span>
+</h1>
+
+  <form class="form-horizontal"  (submit)="modifierInfoContact()"  >
+
+    <div class="form-group">
+      <div class="col-sm-4">
+        <input type="hidden" class="form-control" name="id" [(ngModel)]="model.id"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Adresse</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="adresse"  [(ngModel)]="model.adresse" placeholder="{{model.adresse}}"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">E-mail</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="mail"   placeholder="{{model.mail}}" [(ngModel)]="model.mail"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Téléphone1</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="tel1"   placeholder="{{model.tel1}}"  [(ngModel)]="model.tel1"  required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Téléphone2</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="tel2"   placeholder="{{model.tel2}}"   [(ngModel)]="model.tel2"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Fax</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="fax"   placeholder="{{model.fax}}"   [(ngModel)]="model.fax"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Facebook</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="facebook"    placeholder="{{model.facebook}}"   [(ngModel)]="model.facebook"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Linkedin</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="linkedin"   placeholder="{{model.linkedin}}"   [(ngModel)]="model.linkedin"  required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  class="col-sm-4 control-label">Twitter</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="twitter"   placeholder="{{model.twitter}}"   [(ngModel)]="model.twitter"  required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-10">
+        <button type="submit" name="ok" class="btn btn-primary">Modifier</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="!test">
+  <app-login></app-login>
+
+
+</div>

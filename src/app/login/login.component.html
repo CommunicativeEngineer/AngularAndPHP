@@ -1,0 +1,46 @@
+<h1 class="wew fadeInUp " data-wew-delay="1s ">
+  <span>Login</span>
+</h1>
+
+
+<!--inner content start-->
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <form class="login-form"  (ngSubmit)="onSubmit()"  [formGroup]="messageForm" >
+          <div class="md-block">
+            <label>Username</label>&nbsp;
+            <input required [(ngModel)]="login.username" formControlName="username">
+          </div>
+          <div *ngIf="submitted && messageForm.controls.username.errors" class="error">
+            <div *ngIf="messageForm.controls.username.errors.required" style="color:#ed1c24">Your name is required</div>
+          </div>
+          
+          <br>
+
+          <div class="md-block">
+            <label>Password</label>&nbsp;&nbsp;
+            <input required type="password" [(ngModel)]="login.password" formControlName="password">
+          </div>
+          <div *ngIf="submitted && messageForm.controls.password.errors" class="error">
+            <div *ngIf="messageForm.controls.password.errors.required" style="color:#ed1c24">Your password is required</div>
+          </div>
+          <br>
+          <div class="md-block">
+            <input type="checkbox" name="tos" ng-model="login.tos" required>
+              Remember me
+          </div>
+
+          <div>
+            <br>
+            <div style="text-align: center"><button class="btn btn-primary"  style="width: 60px">Login</button></div>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+</div>
+

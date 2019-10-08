@@ -1,0 +1,56 @@
+<br>
+<br>
+<h1 class="wew fadeInUp " data-wew-delay="1s ">Liste des
+  <span>Publications</span>
+</h1>
+
+<section class="page-section">
+  <div class="container margin-b-60">
+
+    <div class="row  margin-t-60 margin-b-60">
+      <ng-container *ngFor="let publication of publications">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="icon-box dgn-5">
+            <h4>
+              <i class="fa fa-folder-o"></i> {{publication.date}}</h4>
+            <p style="height: 22px;width: auto;overflow: hidden;text-overflow: ellipsis">{{publication.titre}}
+            </p>
+            <br>
+            <a style="cursor:pointer;" (click)="run(publication.lien)" target="_blank">
+              <span class="read-more">charger le PDF
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+
+        </div>
+
+        <div *ngIf="publication.verif">
+
+          <hr width="90%" color="midnightblue" size="3" style="margin-left:50px">
+        </div>
+      </ng-container>
+    </div>
+
+
+  </div>
+  <!-- Pagination -->
+  <div class="pagination-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6" style="text-align: center">
+        <ul *ngIf="this.n>1" class="pagination">
+          <li>
+            <a (click)="getpub(1)">
+              <<</a>
+          </li>
+          <li *ngFor="let page of pages">
+            <a (click)="getpub(page)">{{page}}</a>
+          </li>
+          <li>
+            <a (click)="getpub(n)">>></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

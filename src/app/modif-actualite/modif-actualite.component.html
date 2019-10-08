@@ -1,0 +1,114 @@
+<!--inner header start
+<div class="main-heading">
+    <div class="container">
+        <h3>Icon Boxs</h3>
+    </div>
+</div>
+inner header end-->
+<div *ngIf="test">
+
+<br>
+<br>
+<h1 class="wew fadeInUp " data-wew-delay="1s ">
+  <span>Modifier Actualités</span>
+</h1>
+
+<div>
+  <ul class="nav nav-tabs">
+    <li><a style="cursor:pointer;" (click)="formOff()"><strong>Liste acutalités</strong></a></li>
+    <li><a style="cursor:pointer;" (click)="formOn()"><strong>Ajouter actualité</strong></a></li>
+  </ul>
+</div>
+<!----------------   Affichage Historique commence ici   --------------->
+<div id="liste" *ngIf="!formOnOff">
+  <table class="table table-bordered table-hover"  style="table-layout: fixed;width: 100%">
+
+    <tr class="active ">
+      <th style="overflow: hidden">Id actualité</th>
+      <th style="overflow: hidden">Titre </th>
+      <th style="overflow: hidden">Date d'admission</th>
+      <th style="overflow: hidden">Contenu</th>
+      <th style="overflow: hidden">Action</th>
+    </tr>
+
+    <tr *ngFor="let actualite of actualites">
+      <td style="overflow: hidden">{{actualite.id}}</td>
+      <td style="overflow: hidden">{{actualite.titre}}</td>
+      <td style="overflow: hidden">{{actualite.datee}}</td>
+      <td style="overflow: hidden">{{actualite.contenu}}</td>
+      <td width=275> 
+          <a class="btn btn-info" routerLink="/uneactualite/{{actualite.id}}"  >Detail</a> &nbsp;
+          <a class="btn btn-success"  routerLink="/actualite/{{actualite.id}}" >Edit</a>&nbsp;
+          <a class="btn btn-danger" (click)="supprimerActualite(actualite.id)" >Delete</a >
+      </td>
+    </tr>
+
+  </table>
+  <div class="pagination-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6" style="text-align: center">
+        <ul class="pagination" *ngIf="this.n>1">
+          <li ><a (click)="getact(1)"><<</a></li>
+          <li *ngFor="let page of pages"><a (click)="getact(page)">{{page}}</a></li>
+          <li ><a (click)="getact(n)">>></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!----------------   fin Tableau   --------------->
+
+<!----------------   Formulaire Ajout actualité commence ici  --------------->
+<div id="Form" *ngIf="formOnOff">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form class="form-horizontal" enctype="multipart/form-data" (submit)="ajouterActualite()">
+ 
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Titre</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.titre"  required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Date d'admission</label>
+          <div class="col-sm-4">
+            <input type="date" class="form-control" name="dh" placeholder="Date d'admission"  [(ngModel)]="model.datee" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Contenu</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.contenu" required>
+          </div>
+        </div>
+
+        <div class ="form-group">
+          <label  class="col-sm-4 control-label">Image</label>
+          <div class="col-sm-4">
+            <input type="file" (change)="fileChange($event)"   placeholder="Upload file" accept=".png , .jpeg , .jpg">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-10">
+            <button type="submit" name="ok" class="btn btn-primary">Ajouter actualité</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!----------------   fin Formulaire   --------------->
+
+</div>
+<div *ngIf="!test">
+  <app-login></app-login>
+
+</div>

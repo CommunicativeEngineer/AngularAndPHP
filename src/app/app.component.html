@@ -1,0 +1,5 @@
+<app-header *ngIf="!EspaceAdmin || !Adminn"></app-header>
+<app-header-admin *ngIf="EspaceAdmin && Adminn "></app-header-admin>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+

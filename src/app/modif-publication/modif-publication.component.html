@@ -1,0 +1,104 @@
+<!--inner header start
+<div class="main-heading">
+    <div class="container">
+        <h3>Icon Boxs</h3>
+    </div>
+</div>
+inner header end-->
+<br>
+<br>
+<div *ngIf="test">
+
+<h1 class="wew fadeInUp " data-wew-delay="1s ">
+  <span>Modifier Publications</span>
+</h1>
+
+
+<div>
+  <ul class="nav nav-tabs">
+    <li><a style="cursor:pointer;" (click)="formOff()"><strong>Liste publications</strong></a></li>
+    <li><a style="cursor:pointer;" (click)="formOn()"><strong>Ajouter publication</strong></a></li>
+  </ul>
+</div>
+<!----------------   Affichage Historique commence ici   --------------->
+<div id="liste" *ngIf="!formOnOff">
+  <table class="table table-bordered table-hover" style="table-layout: fixed;width: 100%">
+
+    <tr class="active ">
+      <th style="overflow: hidden">Id publication</th>
+      <th style="overflow: hidden">Titre </th>
+      <th style="overflow: hidden">Date d'admission</th>
+      <th style="overflow: hidden">Fichier</th>
+      <th style="overflow: hidden">Action</th>
+    </tr>
+
+    <tr *ngFor="let publication of publications">
+      <td style="overflow: hidden">{{publication.id}}</td>
+      <td style="overflow: hidden">{{publication.titre}}</td>
+      <td style="overflow: hidden">{{publication.date}}</td>
+      <td style="overflow: hidden">{{publication.lien}}</td>
+      <td width=275> 
+          <a class="btn btn-info"  routerLink="/unepublication/{{publication.id}}" >Detail</a>&nbsp;
+          <a class="btn btn-success" routerLink="/publication/{{publication.id}}"  >Edit</a>&nbsp;
+          <a class="btn btn-danger" (click)="supprimerPublication(publication.id)" >Delete</a >
+      </td>
+    </tr>
+  </table>
+  <!-- Pagination -->
+  <div class="pagination-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6" style="text-align: center">
+        <ul *ngIf="this.n>1" class="pagination">
+          <li><a (click)="getpub(1)"><<</a></li>
+          <li *ngFor="let page of pages"><a (click)="getpub(page)">{{page}}</a></li>
+          <li><a (click)="getpub(n)">>></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------   fin Tableau   --------------->
+
+<!----------------   Formulaire Ajout actualité commence ici  --------------->
+<div id="Form" *ngIf="formOnOff"  >
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form class="form-horizontal"   (submit)="ajouterPublication()">
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Titre</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.titre"   required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Date d'admission</label>
+          <div class="col-sm-4">
+            <input type="date" class="form-control" name="date" placeholder="Date d'admission" [(ngModel)]="model.date"   required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Fichier</label>
+          <div class="col-sm-4">
+            <input type="file" (change)="fileChange($event)"   placeholder="Upload file" accept=".pdf">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-10">
+            <button type="submit" name="ok" class="btn btn-primary">Ajouter publication</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!----------------   fin Formulaire   --------------->
+</div>
+<div *ngIf="!test">
+  <app-login></app-login>
+
+</div>

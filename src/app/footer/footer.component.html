@@ -1,0 +1,109 @@
+<!--Footer start-->
+<div class="footer-container ">
+  <div class="container ">
+    <div class="row ">
+      <div class="col-md-4 col-sm-12 col-xs-12 ">
+        <div class="footer-logo ">
+          <img src="../../assets/images/wob.png ">
+        </div>
+        <p class="justify">De l'établissement des états financiers au conseil en matière de gestion, de droit des affaires, de droit social,
+          ou encore de conseil à l'export, l'Expert-comptable est le conseil permanent du chef d'entreprise. Il apporte également
+          une réponse ponctuelle et ...
+          <a href="/cabinet">Read More</a>
+        </p>
+        <div class="social-icons ">
+          <a href="{{contact?.facebook}}" target="_blank ">
+            <i class="fa fa-facebook " aria-hidden="true "></i>
+          </a>
+          <a href="{{contact?.twitter}}" target="_blank ">
+            <i class="fa fa-twitter " aria-hidden="true "></i>
+          </a>
+          <!-- <a href="#. " target="_blank ">
+            <i class="fa fa-google-plus " aria-hidden="true "></i>
+          </a> -->
+          <a href="{{contact?.linkedin}}" target="_blank ">
+            <i class="fa fa-linkedin " aria-hidden="true "></i>
+          </a>
+          <!-- <a href="#. " target="_blank ">
+            <i class="fa fa-youtube " aria-hidden="true "></i>
+          </a> -->
+        </div>
+
+      </div>
+
+
+      <div class="col-md-3 col-sm-4 col-xs-12 ">
+        <h3>Navigation</h3>
+        <ul class="footer-blocks width-50 ">
+          <li>
+            <a href="/"> Accueil </a>
+          </li>
+          <li>
+            <a routerLink="/cabinet"> Le cabinet</a>
+          </li>
+          <li>
+            <a routerLink="/actualites"> Actualités</a>
+          </li>
+          <li>
+            <a routerLink="services"> Nos services </a>
+          </li>
+          <li>
+            <a routerLink="/publication"> Publications </a>
+          </li>
+          <li>
+            <a routerLink="/contact"> Contact </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 ">
+        <!--ajouter .col-md-3={width:25%}-->
+        <h3 class="m-t-10 ">Contact</h3>
+        <div class="footer-address ">{{contact?.adresse}}
+        </div>
+        <div class="call-us ">
+          {{contact?.tel1}}
+          <br> {{contact?.tel2}}
+        </div>
+        <div class="fax ">
+          {{contact?.fax}}
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-md-12">
+      <div class="newsletter">
+        <h2>Inscription Newsletter</h2>
+        <p class="heading-description"></p>
+        <div class="newsletter-form">
+          <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="home-newsletter" id="newsletter-form"
+            action="" method="post">
+            <div class="newsletter-container">
+              <i class="fa fa-envelope-o"></i>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" id="email" placeholder="Entrez votre adresse EMAIL..."
+                  [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email>
+                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required" style="color:#ed1c24">Ce champ est obligatoire</div>
+                  <div *ngIf="email.errors.email" style="color:#ed1c24">email invalide</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="submit" name="submit" id="submmit" value="S'inscrire">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footerWrp ">
+      <div class="row ">
+        <div class="col-md-6 col-sm-7 ">
+          <div class="copyright ">© 2019 WAB expert comptable | All Rights Reserved</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
